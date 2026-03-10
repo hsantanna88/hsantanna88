@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 170">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 60">
   <defs>
     <style>
       .bg { fill: #0d1117; }
@@ -11,21 +11,6 @@
 
       @keyframes flicker {
         0%, 100% { opacity: 0.92; }
-        50% { opacity: 1; }
-      }
-
-      .fire-yellow {
-        fill: rgb(255, 200, 0);
-        filter: drop-shadow(0px 0px 3px rgba(255, 200, 0, 0.6));
-        animation: fire-pulse 1.5s ease-in-out infinite;
-      }
-      .fire-red {
-        fill: rgb(255, 60, 30);
-        filter: drop-shadow(0px 0px 3px rgba(255, 60, 30, 0.6));
-        animation: fire-pulse 1.5s ease-in-out infinite;
-      }
-      @keyframes fire-pulse {
-        0%, 100% { opacity: 0.2; }
         50% { opacity: 1; }
       }
 
@@ -42,6 +27,7 @@
       .c10 { animation: pop 0.01s 1.50s forwards; }
       .c11 { animation: pop 0.01s 1.65s forwards; }
       .c12 { animation: pop 0.01s 1.80s forwards; }
+      .c13 { animation: pop 0.01s 1.95s forwards; }
 
       @keyframes pop {
         to { opacity: 1; }
@@ -49,7 +35,7 @@
 
       .cursor {
         animation:
-          cursor-move 2s linear forwards,
+          cursor-move 2.1s linear forwards,
           blink 1s step-end infinite;
       }
 
@@ -59,32 +45,34 @@
       }
 
       @keyframes cursor-move {
-        0%     { transform: translateX(0px); }
-        7.49%  { transform: translateX(0px); }
-        7.5%   { transform: translateX(8.4px); }
-        14.99% { transform: translateX(8.4px); }
-        15%    { transform: translateX(16.8px); }
-        22.49% { transform: translateX(16.8px); }
-        22.5%  { transform: translateX(25.2px); }
-        29.99% { transform: translateX(25.2px); }
-        30%    { transform: translateX(33.6px); }
-        37.49% { transform: translateX(33.6px); }
-        37.5%  { transform: translateX(42px); }
-        44.99% { transform: translateX(42px); }
-        45%    { transform: translateX(50.4px); }
-        52.49% { transform: translateX(50.4px); }
-        52.5%  { transform: translateX(58.8px); }
-        59.99% { transform: translateX(58.8px); }
-        60%    { transform: translateX(67.2px); }
-        67.49% { transform: translateX(67.2px); }
-        67.5%  { transform: translateX(75.6px); }
-        74.99% { transform: translateX(75.6px); }
-        75%    { transform: translateX(84px); }
-        82.49% { transform: translateX(84px); }
-        82.5%  { transform: translateX(92.4px); }
-        89.99% { transform: translateX(92.4px); }
-        90%    { transform: translateX(100.8px); }
-        100%   { transform: translateX(100.8px); }
+        0%      { transform: translateX(0px); }
+        7.14%   { transform: translateX(0px); }
+        7.15%   { transform: translateX(8.4px); }
+        14.28%  { transform: translateX(8.4px); }
+        14.29%  { transform: translateX(16.8px); }
+        21.42%  { transform: translateX(16.8px); }
+        21.43%  { transform: translateX(25.2px); }
+        28.56%  { transform: translateX(25.2px); }
+        28.57%  { transform: translateX(33.6px); }
+        35.70%  { transform: translateX(33.6px); }
+        35.71%  { transform: translateX(42px); }
+        42.84%  { transform: translateX(42px); }
+        42.85%  { transform: translateX(50.4px); }
+        49.98%  { transform: translateX(50.4px); }
+        49.99%  { transform: translateX(58.8px); }
+        57.12%  { transform: translateX(58.8px); }
+        57.13%  { transform: translateX(67.2px); }
+        64.26%  { transform: translateX(67.2px); }
+        64.27%  { transform: translateX(75.6px); }
+        71.40%  { transform: translateX(75.6px); }
+        71.41%  { transform: translateX(84px); }
+        78.54%  { transform: translateX(84px); }
+        78.55%  { transform: translateX(92.4px); }
+        85.68%  { transform: translateX(92.4px); }
+        85.69%  { transform: translateX(100.8px); }
+        92.82%  { transform: translateX(100.8px); }
+        92.83%  { transform: translateX(109.2px); }
+        100%    { transform: translateX(109.2px); }
       }
 
       .scanline {
@@ -103,20 +91,18 @@
   </defs>
 
   <!-- Background -->
-  <rect width="480" height="170" rx="6" class="bg"/>
+  <rect width="480" height="60" rx="6" class="bg"/>
 
   <!-- Frame border -->
-  <rect x="1" y="1" width="478" height="168" rx="5" fill="none" stroke="rgba(0,200,83,0.15)" stroke-width="1"/>
+  <rect x="1" y="1" width="478" height="58" rx="5" fill="none" stroke="rgba(0,200,83,0.15)" stroke-width="1"/>
 
-  <!-- Dragon ASCII art (single text block for perfect alignment) -->
-  <text xml:space="preserve" x="148" y="25" font-family="monospace" font-size="14" class="glow light"><tspan x="148" dy="0">         /\   \__</tspan><tspan x="148" dy="18">        /  \_(o _)<tspan class="fire-yellow"> ~~</tspan><tspan class="fire-red">&gt;</tspan></tspan><tspan x="148" dy="18">     ____/\_/ /</tspan><tspan x="148" dy="18">   _/       /</tspan><tspan x="148" dy="18">  /_ _   __/</tspan><tspan x="148" dy="18">    /_/ /_/</tspan></text>
-
-  <!-- Typing line -->
-  <text xml:space="preserve" x="181" y="148" font-family="monospace" font-size="14" class="glow light">$ <tspan class="char c1">h</tspan><tspan class="char c2">e</tspan><tspan class="char c3">l</tspan><tspan class="char c4">l</tspan><tspan class="char c5">o</tspan><tspan class="char c6"> </tspan><tspan class="char c7">t</tspan><tspan class="char c8">h</tspan><tspan class="char c9">e</tspan><tspan class="char c10">r</tspan><tspan class="char c11">e</tspan><tspan class="char c12">!</tspan></text>
+  <!-- Dragon emoji + typing line -->
+  <text x="148" y="37" font-size="22">&#x1F409;</text>
+  <text xml:space="preserve" x="175" y="37" font-family="monospace" font-size="14" class="glow light">$ <tspan class="char c1">h</tspan><tspan class="char c2">e</tspan><tspan class="char c3">l</tspan><tspan class="char c4">l</tspan><tspan class="char c5">o</tspan><tspan class="char c6"> </tspan><tspan class="char c7">t</tspan><tspan class="char c8">h</tspan><tspan class="char c9">e</tspan><tspan class="char c10">r</tspan><tspan class="char c11">e</tspan><tspan class="char c12">!</tspan></text>
 
   <!-- Blinking cursor -->
-  <rect x="198" y="136" width="8" height="14" class="cursor light"/>
+  <rect x="192" y="25" width="8" height="14" class="cursor light"/>
 
   <!-- Scanlines overlay -->
-  <rect width="480" height="170" rx="6" fill="url(#scanlines)" class="scanline"/>
+  <rect width="480" height="60" rx="6" fill="url(#scanlines)" class="scanline"/>
 </svg>
