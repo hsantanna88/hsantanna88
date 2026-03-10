@@ -1,1 +1,1 @@
-<img src="./hellothere.svg"/>
+<img src="./hellothere.svg?v=3"/>

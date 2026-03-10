@@ -1,14 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200">
   <defs>
     <style>
-      .term-bg { fill: #0a0a0a; }
-      .titlebar { fill: #1a1a1a; }
-      .dot-red { fill: #ff5f56; }
-      .dot-yellow { fill: #ffbd2e; }
-      .dot-green { fill: #27c93f; }
+      .bg { fill: #0d1117; }
       .prompt { fill: #00c853; }
       .comment { fill: #cccccc; }
-      .title-text { fill: #888888; }
 
       .glow {
         fill: #00c853;
@@ -31,7 +26,6 @@
       .c12 { animation: pop 0.01s 1.80s forwards; }
       @keyframes pop { to { opacity: 1; } }
 
-      /* Terminal typing clips (start after hello) */
       .cursor-end {
         opacity: 0;
         animation: cursor-appear 0.01s 6.0s forwards, blink 1s 6.0s step-end infinite;
@@ -41,7 +35,20 @@
         0% { opacity: 1; }
         50% { opacity: 0; }
       }
+
+      .scanline {
+        opacity: 0.03;
+        animation: scan-flicker 1s linear infinite;
+      }
+      @keyframes scan-flicker {
+        0%, 100% { opacity: 0.03; }
+        50% { opacity: 0.05; }
+      }
     </style>
+
+    <pattern id="scanlines" patternUnits="userSpaceOnUse" width="600" height="3">
+      <rect width="600" height="1" fill="rgb(0,200,83)"/>
+    </pattern>
 
     <clipPath id="l0"><rect width="0" height="300"><animate attributeName="width" to="600" dur="0.3s" begin="0.1s" fill="freeze"/></rect></clipPath>
     <clipPath id="l1"><rect width="0" height="300"><animate attributeName="width" to="600" dur="0.25s" begin="2.2s" fill="freeze"/></rect></clipPath>
@@ -53,37 +60,31 @@
     <clipPath id="l7"><rect width="0" height="300"><animate attributeName="width" to="600" dur="0.5s" begin="5.1s" fill="freeze"/></rect></clipPath>
   </defs>
 
-  <!-- Terminal window -->
-  <rect width="600" height="220" rx="8" class="term-bg"/>
+  <!-- Background -->
+  <rect width="600" height="200" rx="6" class="bg"/>
 
-  <!-- Title bar -->
-  <rect width="600" height="24" rx="8" class="titlebar"/>
-  <rect y="16" width="600" height="8" class="titlebar"/>
+  <!-- Frame border -->
+  <rect x="1" y="1" width="598" height="198" rx="5" fill="none" stroke="rgba(0,200,83,0.15)" stroke-width="1"/>
 
-  <!-- Window dots -->
-  <circle cx="16" cy="12" r="4.5" class="dot-red"/>
-  <circle cx="32" cy="12" r="4.5" class="dot-yellow"/>
-  <circle cx="48" cy="12" r="4.5" class="dot-green"/>
-
-  <!-- Title -->
-  <text x="300" y="16" font-family="monospace" font-size="10" text-anchor="middle" class="title-text">hsantanna@uab ~</text>
-
-  <!-- Dragon hello line -->
-  <text clip-path="url(#l0)" xml:space="preserve" x="16" y="46" font-family="monospace" font-size="11" class="prompt">$hsantanna &gt;</text>
-  <text clip-path="url(#l0)" xml:space="preserve" x="118" y="46" font-family="monospace" font-size="11" class="glow"><tspan class="char c1">h</tspan><tspan class="char c2">e</tspan><tspan class="char c3">l</tspan><tspan class="char c4">l</tspan><tspan class="char c5">o</tspan><tspan class="char c6"> </tspan><tspan class="char c7">t</tspan><tspan class="char c8">h</tspan><tspan class="char c9">e</tspan><tspan class="char c10">r</tspan><tspan class="char c11">e</tspan><tspan class="char c12">!</tspan></text>
-  <text x="215" y="70" font-size="45">&#x1F409;</text>
+  <!-- Hello line + dragon -->
+  <text clip-path="url(#l0)" xml:space="preserve" x="20" y="30" font-family="monospace" font-size="11" class="prompt">$hsantanna &gt;</text>
+  <text clip-path="url(#l0)" xml:space="preserve" x="122" y="30" font-family="monospace" font-size="11" class="glow"><tspan class="char c1">h</tspan><tspan class="char c2">e</tspan><tspan class="char c3">l</tspan><tspan class="char c4">l</tspan><tspan class="char c5">o</tspan><tspan class="char c6"> </tspan><tspan class="char c7">t</tspan><tspan class="char c8">h</tspan><tspan class="char c9">e</tspan><tspan class="char c10">r</tspan><tspan class="char c11">e</tspan><tspan class="char c12">!</tspan></text>
+  <text x="219" y="54" font-size="45">&#x1F409;</text>
 
   <!-- whoami -->
-  <text clip-path="url(#l1)" xml:space="preserve" x="16" y="72" font-family="monospace" font-size="11" class="prompt">$hsantanna &gt; whoami</text>
-  <text clip-path="url(#l2)" xml:space="preserve" x="16" y="87" font-family="monospace" font-size="11" class="comment">Hi, I'm Hugo Sant'Anna, an Assistant Professor of Economics</text>
-  <text clip-path="url(#l3)" xml:space="preserve" x="16" y="102" font-family="monospace" font-size="11" class="comment">at the University of Alabama at Birmingham. Go Blazers!</text>
+  <text clip-path="url(#l1)" xml:space="preserve" x="20" y="56" font-family="monospace" font-size="11" class="prompt">$hsantanna &gt; whoami</text>
+  <text clip-path="url(#l2)" xml:space="preserve" x="20" y="71" font-family="monospace" font-size="11" class="comment">Hi, I'm Hugo Sant'Anna, an Assistant Professor of Economics</text>
+  <text clip-path="url(#l3)" xml:space="preserve" x="20" y="86" font-family="monospace" font-size="11" class="comment">at the University of Alabama at Birmingham. Go Blazers!</text>
 
   <!-- research -->
-  <text clip-path="url(#l4)" xml:space="preserve" x="16" y="127" font-family="monospace" font-size="11" class="prompt">$hsantanna &gt; research</text>
-  <text clip-path="url(#l5)" xml:space="preserve" x="16" y="142" font-family="monospace" font-size="11" class="comment">I work with large-scale matched employer-employee data, focusing on</text>
-  <text clip-path="url(#l6)" xml:space="preserve" x="16" y="157" font-family="monospace" font-size="11" class="comment">labor economics and applied and theoretical econometrics. Currently</text>
-  <text clip-path="url(#l7)" xml:space="preserve" x="16" y="172" font-family="monospace" font-size="11" class="comment">studying how immigration flows reshape wage and employment equilibrium.</text>
+  <text clip-path="url(#l4)" xml:space="preserve" x="20" y="111" font-family="monospace" font-size="11" class="prompt">$hsantanna &gt; research</text>
+  <text clip-path="url(#l5)" xml:space="preserve" x="20" y="126" font-family="monospace" font-size="11" class="comment">I work with large-scale matched employer-employee data, focusing on</text>
+  <text clip-path="url(#l6)" xml:space="preserve" x="20" y="141" font-family="monospace" font-size="11" class="comment">labor economics and applied and theoretical econometrics. Currently</text>
+  <text clip-path="url(#l7)" xml:space="preserve" x="20" y="156" font-family="monospace" font-size="11" class="comment">studying how immigration flows reshape wage and employment equilibrium.</text>
 
   <!-- Blinking cursor -->
-  <rect x="16" y="184" width="6" height="11" fill="#00c853" class="cursor-end"/>
+  <rect x="20" y="168" width="6" height="11" fill="#00c853" class="cursor-end"/>
+
+  <!-- Scanlines overlay -->
+  <rect width="600" height="200" rx="6" fill="url(#scanlines)" class="scanline"/>
 </svg>
